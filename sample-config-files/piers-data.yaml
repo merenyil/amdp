@@ -1,0 +1,28 @@
+# Measurement site definitions, used by measurement_sites.py / measurement_site_list.
+# lat/long: degrees. elev: meters. I_deg/D_deg: typical inclination/declination (degrees).
+# F: typical total field (nT). pillars: list of known pillar names at the site.
+# H: optional, typical horizontal field component (nT) - only given where known.
+#
+# refpos: known reference-mark azimuth directions at the site (degrees), used as
+# measurement_sites.refpos_const_data_list. Each entry is [refmark-name, azimuth_deg].
+# Order matters: the first entry is used as the site's default pillar/refmark name
+# (see measurement_sites.get_default_pillar_name()).
+
+MNY:
+  lat: 47.541284
+  long: 18.65355
+  elev: 100
+  I_deg: 64.3
+  D_deg: 5.3
+  F: 49220
+  piers: ['A1', 'A2']
+  H: 20400
+  azimuth-marks:
+    - A1, TowerLeft,  147.7495, 89.3727      # Torony bal oldala A1 oszlopról.  >147° 44' 58.1"<
+    - A2, TowerLeft,  147.5516, 89.3835      # Torony bal oldala A2 oszlopról
+    - A1, TowerAnt1,  147.7300, 88.8989   # = 147.7495 - 15*(360.0/276960)
+    - A2, TowerAnt1,  147.5321, 88.9097   # = 147.5516 - 15.0*(360.0/276960), Torony bal oldala A2 oszlopról        
+    - A1, AntLamp,    147.7495
+    - A2, TowerRight, 147.676      # Torony jobb oldala A2-ről
+    - A2, A1-from-A2, 67.51576666666666     # = 67.5641 - 2.9/60., A1 pillérre ragasztott matrica A2-ről - 2026.jan-i korrekcióval
+

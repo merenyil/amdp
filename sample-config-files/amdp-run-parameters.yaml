@@ -1,0 +1,62 @@
+# Example file
+
+title: Baseline calculation with amdp software
+
+site: MNY
+pillar: A1   # "pier" key also accepted. 
+             # It is the simple short tillar name (ID), or a list of pillar ids in the form of "[ A1, A2]"
+             #  "*" (within quotes!) means to use all pillars from DIM data files
+
+calculation-type: spot-baselines  # Recently only "spot-baselines" is allowed here
+post-processings: []
+baseline-calc-approach: Y0-nT  # "D0-angle" for HDZ or "Y0-nT" for XYZ in nT
+residual-stddev-limit[nT]:  5
+mag-obs-dataset: MNY-sec  # An entry  in "observatory-datasets.yaml" file
+
+DIM-instr:
+  id: DIM  # e.g. DIM or ADS
+  M-scale-corr: 1.0   # Use -1 for reversed polarity sensor
+
+DIM-data-files-format: Mingeo-XLSX  # "ADS-raw-dat-files"  / "Mingeo-manual-XLSX"  /  "Mingeo-DS-XLSX" / "MagPy-autodetect"
+DIM-data-files-overrides: 
+    set-pillar: ADS-test-pillar
+    use-magnetometer-data-from-files: { "path": "A:/ADS/_ACT/MNY-A2-aux/_mirror/dat/aux-mag-sensor", "file-name-mask": "%Y%m%d-Mdigitout-1Hz-nT.dat", "interval": "1sec", "hour-colindex": 1, "M-colindex": 4, "range": { "min":-2000, "max":2000 } }
+DIM-data-files: A:\ADS\XLSX\xlsx.dat
+
+DIM-azimuth-readings-data-files:   # Set to empty, or comment out if azimuth reading data are together with DIM magnetic data
+azimuth-mark: TowerLeft
+azimuth-readings-validity-days: 0.5
+
+F-pillar-diff[nT]: 1.5
+
+remove-means: no  # "no" / "baselines" For special representation of results around 0.0
+
+data-selection-filters:
+  from-date: "2026.08.11 12:00"
+  # to-date:   "2026.08.12 09:00"
+  exclude-dates: [ "2026.08.19 07:14" ]
+
+calculation-parameters:
+
+  - results-file: results/amdp-results-ref.dat
+    pointwise-results-file: results/amdp-measpoint-results-00.dat
+    use: yes
+    method: RESID   # "RESID", "GN", "LM-DI", "LM-BL/A0B0"
+    # F-source: mag-obs-dataset:MNY-DIDD-XYZF  # default  / mag-obs-dataset:MNY-DIDD-XYZF
+    self-checks: no
+    aux-calculations: 
+    - null-positions: 0nT.dat
+    - residuals-from-last-window-results  # Can be used to track problems in problematic measurements, that are after good measurements
+    angle-reandings-corrections: {units: arcsec/deg, hc: 60/180 }
+    parameters: # Used for LM solver
+    - M-scale: { value: 1.0  }
+    - H0: { min: 25000, max: 27000 }
+    - D0: { min: -4500, max: -3900 }
+    - Z0: { min: 14300, max: 15000 }
+    
+  - results-file: results/amdp-results-01.dat
+    use: yes
+    method: RESID 
+    # F-source: mag-obs-dataset:MNY-DIDD2-XYZF  # Override F data from this dataset
+    self-checks: no
+

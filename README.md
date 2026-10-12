@@ -26,7 +26,7 @@ Optional dependencies, needed only for some input formats:
    - Handles any number of measurement points/samples (ADS case) per absolute measurement
    - Azimuth data can be read from separate data files (ADS case)
    - Different methods/solvers to get spot baselines: residual, Gauss-Newton, Levenberg–Marquardt algorithm
-- Command line usage with YAML configuration files: for most use scenarios, modifying the Python source code is not required
+- Command line usage with YAML configuration files: for most use scenarios, calling Python functions and modifying the Python source code is not required
 - Can run calculations with several parameter sets at once, for easy and fast comparison of results.
 
 

@@ -3,10 +3,10 @@
 # (e.g. local drive paths, project-specific parameters) and should
 # not be committed. Keep local copies on each machine instead, or
 # commit a *.example.yaml template alongside this file.
-ui-preferences.yaml
-amdp-run-parameters.yaml
-piers-data.yaml
-observatory-datasets.yaml
+/ui-preferences.yaml
+/amdp-run-parameters.yaml
+/piers-data.yaml
+/observatory-datasets.yaml
 
 amdp-dev-configs.py
 magpy_wrapper.py
