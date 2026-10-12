@@ -1,0 +1,12 @@
+numpy
+pandas
+matplotlib
+PyYAML
+lmfit            # also installs scipy
+tabulate
+python-dateutil
+openpyxl         # needed by pandas to read .xlsx files
+
+# Optional, only for some input formats:
+# geomagpy       # DIM-data-files-format: MagPy-autodetect
+# cdflib         # CDF data files
