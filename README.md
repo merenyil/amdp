@@ -25,13 +25,13 @@ Optional dependencies, needed only for some input formats:
 - Processing of non standard geomagnetic absolute measurement data:
    - Handling of any number of measurement points/samples (ADS case) per absolute measurement. 
      For accurate results, the number of measurement points should be equal in each of the eight main directions.
-   - Data import and data processing easily supports any measurement order
+   - Data import and data processing easily supports any measurement order.
    - The used algorithms account for vc angles that are not set exactly to horizontal at the declination part, 
-     and for hc angles to exactly positioned to the meridian at the inclination part
-   - Different methods/algorithms to get spot baselines: residual, Gauss-Newton, Levenberg–Marquardt (recently only for XYZ) algorithms
-   - Scale factor prediction, identification and handling of cases when sensor polarity is reversed (negative scale factor)
-   - Variation data reduction applied for a reference time in cases when it is required
-   - In case of autometed instruments (ADS): azimuth data can be read from separate data files 
+     and for hc angles that are not exactly positioned to the calculated meridian at the inclination part.
+   - Different methods/algorithms to get spot baselines: residual, Gauss-Newton, Levenberg–Marquardt (recently only for XYZ) algorithms.
+   - Scale factor prediction, identification and handling of cases when sensor polarity is reversed (negative scale factor).
+   - Variation data reduction applied for a reference time in cases when it is required.
+   - In case of autometed instruments (ADS): azimuth data can be read from separate data files.
 - Command line usage with YAML configuration files: for most use scenarios, calling Python functions and modifying the Python source code is not required.
 - Calculation results and some related information (spot baseline values, sensor misalignments, measurement quality flag, measurement duration,
    mire stats) are saved into ASCII data files.
