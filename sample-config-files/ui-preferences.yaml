@@ -1,0 +1,36 @@
+# Output options for amdp
+
+input-data-plots: false
+processing-window-plots: false   # Plots of variation and residuals for each measurement
+processing-window-tables: false
+post-plots: false
+wait-for-enter-at-infos: false
+wait-for-enter-at-warnings: false
+
+# Display / output preferences.
+# These control plot appearance and the precision (number of decimal digits) used
+# when printing or saving results
+
+magnetic_comp_plot_colors:
+  X: blue
+  H: blue
+  Y: red
+  D: red
+  Z: green
+  F: black
+
+FIGURE_SIZE: [10, 3]
+
+# Number of decimal digits used when printing/saving these values:
+TIMELABEL-FORMAT_SEC: "%Y.%m.%d %H:%M:%S"  # Used in log messages 
+TIMELABEL-FORMAT_MIN: "%Y.%m.%d %H:%M"     # Used in log messages
+TIMELABEL-DECIMAL-DIGITS: 5      # float type ('Excel encoded') time labels
+nT-DECIMAL-DIGITS: 2              # magnetic values (X/Y/Z) (in nT)
+nT-RESID-DECIMAL-DIGITS: 2        # residuals (in nT)
+INCL-DECL-DECIMAL-DIGITS: 5   # Inclination/declination
+# M_SCALE_PREC: 6       # currently unused
+
+# Directory used by dat_file_reader.py to cache parsed DAT files as .npy
+# files, to speed up repeated processing of the same raw data.
+# Optional: if omitted or commented out, then cache dir is not used.
+# data-cache-dir: "a:\\dat\\.cache\\"

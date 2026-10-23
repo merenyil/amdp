@@ -1,0 +1,47 @@
+# --- Local / machine-specific project configuration ---
+# These contain site-, instrument- and machine-specific settings
+# (e.g. local drive paths, project-specific parameters) and should
+# not be committed. Keep local copies on each machine instead, or
+# commit a *.example.yaml template alongside this file.
+/ui-preferences.yaml
+/amdp-run-parameters.yaml
+/piers-data.yaml
+/observatory-datasets.yaml
+
+amdp-dev-configs.py
+magpy_wrapper.py
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# --- Virtual environments ---
+.venv/
+venv/
+env/
+
+# --- Editor / IDE ---
+.spyderproject
+.spyproject
+
+# --- Spec. configs ---
+configs/
+
+# --- Measurement data / results (usually local, not source) ---
+results/
+
+# Other
+raktár/
+notes/
+
+git/
+remaining-depreacted/
+
+# --- OS junk ---
+.DS_Store
+Thumbs.db

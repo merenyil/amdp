@@ -1,0 +1,17 @@
+# Variometer and scalar (and optional environmental) data source definitions for amdp
+ 
+        
+MNY-DIDD-XYZF:
+  dataset-name: MNY DIDD with underground sensor from 2026 sept.
+  station: MNY  
+  variometer-orientation: dIdD  # HDZ / XYZ / dIdD
+  usage-frame: XYZ  # HDZ or XYZ
+  dIdD-I0:  64.1 deg
+  dIdD-D0:  5.5 deg
+  interpolation-window[sec]: 20
+  data-files: 
+    - path: A:/dat/MNY/dIdD/sec/deflected/%Y%m%d-rawdidd.dat
+      file-format: ASCII-dat   # "IAGA-2002" / "ASCII-dat" / "SCC" (not checked) 
+      components: ["%skip","%H", "%M", "%S", F , "I+", "I-", "D+", "D-" ]  # Can be an list of magnetic components (e.g. ["X","Y","Z"], or a full record definition, with timestamp components, and optional skipped components. 
+      interval: 5sec/not-aligned
+      
