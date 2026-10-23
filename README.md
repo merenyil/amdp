@@ -26,17 +26,17 @@ Optional dependencies, needed only for some input formats:
    - Handling of any number of measurement points/samples (ADS case) per absolute measurement. 
      For accurate results, the number of measurement points should be equal in each of the eight main directions.
    - Data import and data processing easily supports any measurement order
-   - The used algorithms account for vc angles that are possibly not set exactly to horizontal at the declination part, 
-     and to the meridian at the inclination part
+   - The used algorithms account for vc angles that are not set exactly to horizontal at the declination part, 
+     and for hc angles to exactly positioned to the meridian at the inclination part
    - Different methods/algorithms to get spot baselines: residual, Gauss-Newton, Levenberg–Marquardt (recently only for XYZ) algorithms
-   - Scale factor prediction, identification and handling of cases when sensor polarity is reversed (netative scale factor)
+   - Scale factor prediction, identification and handling of cases when sensor polarity is reversed (negative scale factor)
    - Variation data reduction applied for a reference time in cases when it is required
    - In case of autometed instruments (ADS): azimuth data can be read from separate data files 
 - Command line usage with YAML configuration files: for most use scenarios, calling Python functions and modifying the Python source code is not required.
 - Calculation results and some related information (spot baseline values, sensor misalignments, measurement quality flag, measurement duration,
-   mire stats) saved into ASCII data files.
+   mire stats) are saved into ASCII data files.
 - Running of calculations with several parameter sets at once, for easy and fast comparison of results. 
-- Optional plotting of variation (variometer + scalar) during absolute measurements, to identify eventual magnetic disturbance
+- Optional plots of variation (variometer + scalar) during absolute measurements, to identify eventual magnetic disturbance
 - Calculation, saving and optional plots of each measurement points residuals, to track some possible measurement problems 
 
 ## Configuration files
@@ -47,16 +47,11 @@ The program is driven by a set of YAML configuration files:
 |---|---|
 | `amdp-run-parameters.yaml` | Run settings: site/pillar/instrument definition, data-sets selection, calculation parameters, calculation variants |
 | `piers-data.yaml` | Observatories/test sites pier data |
-| `observatory-datasets.yaml` | Observatory magnetic data set (data file locations) definitions |
-| `ui-preferences.yaml` | Display/output preferences (plot options, decimal precision, optional data cache directory, etc.) |
+| `observatory-datasets.yaml` | Observatory magnetic data set (data file locations, format and record interval) definitions |
+| `ui-preferences.yaml` | Display/output preferences (plot options, decimal precision, etc.) |
 
 Example versions of all four files are in [`sample-config-files/`](sample-config-files/).
 Copy them to your own configuration directory and adapt them.
-
-`amdp-run-parameters.yaml`, `piers-data.yaml` and `observatory-datasets.yaml`
-contain machine- and project-specific settings and are excluded from version
-control via `.gitignore`. `ui-preferences.yaml` is tracked in the repository
-as a shared default.
 
 Notes on `amdp-run-parameters.yaml`:
 
